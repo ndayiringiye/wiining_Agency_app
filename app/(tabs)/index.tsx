@@ -1,15 +1,26 @@
-import {View, Text, StatusBar, TouchableHighlight} from "react-native"
-import AntDesign from '@expo/vector-icons/AntDesign';
+import { View, Text, TouchableOpacity } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
+import { StatusBar } from "expo-status-bar";
+import AntDesign from "@expo/vector-icons/AntDesign";
 
-const index = () => {
+const Navbar = () => {
   return (
-   <View>
-     <StatusBar className="flex-row justify-between items-center p-4">
-      <Text>LOGO</Text>
-      <View><AntDesign name="menu" size={24} color="black" /></View>
-     </StatusBar>
-   </View>
-  )
-}
+    <>
+      <StatusBar style="dark" />
 
-export default index
+      <SafeAreaView className="bg-white">
+        <View style={{ height: 60 }} className="flex-row items-center justify-between px-4">
+          <Text className="text-blue-600 text-lg font-bold">
+            LOGO
+          </Text>
+
+          <TouchableOpacity activeOpacity={0.7}>
+            <AntDesign name="menu" size={24} color="#2563eb" />
+          </TouchableOpacity>
+        </View>
+      </SafeAreaView>
+    </>
+  );
+};
+
+export default Navbar;
